@@ -1,0 +1,30 @@
+{
+  "kind": "TableSchema",
+  "columns": [
+    {
+      "kind": "ColumnSchema",
+      "name": ".ri",
+      "type": "int32"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": ".ci",
+      "type": "int32"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "ds3.score",
+      "type": "double"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "ds3.p_value",
+      "type": "double"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "ds3.neglog_p_value",
+      "type": "double"
+    }
+  ]
+}
