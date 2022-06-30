@@ -23,7 +23,8 @@ get.score <- function(df_in) {
   return(df_out)
 }
 
-(ctx = tercenCtx()) %>%
+ctx <- tercenCtx()
+ctx %>%
   select(.ci, .ri, .y) %>%
   group_by(.ri) %>%
   do(get.score(.)) %>%
