@@ -13,7 +13,10 @@ get.score <- function(df_in) {
       global_mad = median(abs(.y - global_median), na.rm = TRUE),
       global_median = global_median,
       score = 0.6745 * (col_median - global_median) / col_mad # not a magic number
-    ) %>% 
+    ) %>%
+    ungroup() %>%
+    mutate(scl = mean(range(col_median))) %>%
+    mutate(score = score - scl) %>%
     select(.ri, .ci, score) %>%
     mutate(
       p_value = 2 * pnorm(abs(score), lower.tail = FALSE),
