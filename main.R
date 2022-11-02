@@ -11,7 +11,7 @@ get.score <- function(df_in) {
     summarise(
       col_median = {
         med = median(.y, na.rm = TRUE)
-        if_else(med == 0, min(.y[.y > 0]), med)
+        if_else(med == 0, min(.y[.y > 0], na.rm = TRUE), med)
       },
       col_mad = median(abs(.y - col_median), na.rm = TRUE),
       global_mad = global_mad,
@@ -45,18 +45,3 @@ df <- ctx %>%
   do(get.score(.)) %>%
   ctx$addNamespace() %>%
   ctx$save()
-
-df_in <- ctx %>%
-  select(.ci, .ri, .y) %>%
-  filter(.ri == 5)
-
-
-df_in %>% 
-  filter(.ci == 2) %>%
-  summarise(
-
-    col_mad = median(abs(.y - col_median), na.rm = TRUE),
-    global_mad = global_mad,
-    global_median = global_median,
-    n = n(),
-  )
