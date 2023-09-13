@@ -1,11 +1,10 @@
 # Marker Enrichment Score
 
-##### Description
+### Description
 
-The `marker_enrichment_operator` computes a standardised metric to quantify
-the relative enrichment of a marker / channel per group / cluster.
+The marker enrichment score is a standardised metric to quantify the relative enrichment of a marker (higher expression) in a cluster. 
 
-##### Usage
+### Usage
 
 Input projection|.
 ---|---
@@ -19,13 +18,12 @@ Output relations|.
 `p_value`        | p-value
 `neglog_p_value`        | -log10(p-value)
 
-The marker enrichment score is a standardised metric to quantify the relative enrichment of a marker (higher expression) in a cluster. 
 
-##### Details
+### Details
 
-__Formula__:
+The score is computed as follows:
 
-$$Z_{\text{ME}}=0.6745 \times \frac{m_{cluster} - m_{marker}}{MAD},$$
+$$Z_{\text{ME}} = 0.6745 \times \frac{m_{cluster} - m_{marker}}{MAD},$$
 
 where:
 * $m_{cluster}$ is the median marker intensity of a given cluster.
